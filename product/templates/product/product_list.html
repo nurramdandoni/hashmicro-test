@@ -1,8 +1,16 @@
 <h1>Product List</h1>
-<a href="{% url 'product_add' %}">Add New Product</a>
+{% if "public" not in request.user.groups.all|join:"," %}
+    <a href="{% url 'product_add' %}">Add New Product</a>
+{% endif %}
 <ul>
     {% for product in products %}
-        <li>{{ product.name }} - {{ product.price }} <a href="edit/{{ product.id }}">Edit</a> | <a href="delete/{{ product.id }}" onclick="return confirmDelete(event);">Delete</a></li>
+        {% if "public" in request.user.groups.all|join:"," %}
+            <li>{{ product.name }} - {{ product.price }} </li>
+        {% elif "user" in request.user.groups.all|join:"," %}
+            <li>{{ product.name }} - {{ product.price }} <a href="edit/{{ product.id }}">Edit</a></a></li>
+        {% else %}
+            <li>{{ product.name }} - {{ product.price }} <a href="edit/{{ product.id }}">Edit</a> | <a href="delete/{{ product.id }}" onclick="return confirmDelete(event);">Delete</a></li>
+        {% endif %}
     {% endfor %}
 </ul>
 

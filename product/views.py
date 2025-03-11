@@ -8,8 +8,11 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def product_list(request):
     products = Product.objects.all()
+    user = request.user
+    groups = list(user.groups.values_list('name', flat=True))
+    # return JsonResponse({'group': groups, 'products': list(products.values())})
     # return JsonResponse({'products': list(products.values())})
-    return render(request, 'product/product_list.html', {'products': products})
+    return render(request, 'product/product_list.html', {'group': groups,'products': products})
 
 def product_add(request):
     return render(request, 'product/product_form.html')
