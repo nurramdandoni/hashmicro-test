@@ -6,6 +6,9 @@ def product_list(request):
     products = Product.objects.all()
     return render(request, 'product/product_list.html', {'products': products})
 
+def product_add(request):
+    return render(request, 'product/product_form.html')
+
 def product_create(request):
     if request.method == 'POST':
         name = request.POST['name']

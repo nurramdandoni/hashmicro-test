@@ -1,0 +1,26 @@
+<h1>Product Form Add</h1>
+<!-- <a href="{% url 'product_add' %}">Create Product</a> -->
+
+<form action="{% url 'product_create' %}" method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td><span>Nama Product : </span></td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td><span>Barcode : </span></td>
+            <td><input type="text" name="barcode"></td>
+        </tr>
+        <tr>
+            <td><span>Price : </span></td>
+            <td><input type="text" name="price"></td>
+        </tr>
+        <tr>
+            <td><span>Stock : </span></td>
+            <td><input type="text" name="stock"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Add Product">
+    <a href="{% url 'product_list' %}">Batal</a>
+</form>
