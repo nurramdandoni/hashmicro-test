@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module Management</title>
+</head>
+<body>
+    <h1>Module List</h1>
+    {% for module in modules %}
+        <p>{{ module.name }} - {% if module.installed %} Installed {% else %} Not Installed {% endif %}</p>
+        {% if not module.installed %}
+            <a href="{% url 'install_module' module.name %}">Install</a>
+        {% else %}
+            <a href="{% url 'uninstall_module' module.name %}">Uninstall</a>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
