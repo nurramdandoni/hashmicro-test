@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Module
 from django.contrib import messages
+from django.http import JsonResponse
 
 def module_list(request):
     modules = Module.objects.all()
+    # Module.objects.create(name="product", installed=True)
+    # Module.objects.get(name="example_module").delete()
+    # return JsonResponse({'modules': list(modules.values())})
     return render(request, 'engine/module_list.html', {'modules': modules})
 
 def install_module(request, module_name):
