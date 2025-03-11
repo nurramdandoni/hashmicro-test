@@ -24,3 +24,10 @@
     <input type="submit" value="Add Product">
     <a href="{% url 'product_list' %}">Batal</a>
 </form>
+{% if messages %}
+    {% for message in messages|slice:"-1:" %} 
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
