@@ -3,7 +3,9 @@ from .models import Product
 from django.contrib import messages
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def product_list(request):
     products = Product.objects.all()
     # return JsonResponse({'products': list(products.values())})

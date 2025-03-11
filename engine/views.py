@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Module
 from django.contrib import messages
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def module_list(request):
     modules = Module.objects.all()
     # Module.objects.create(name="product", installed=True)

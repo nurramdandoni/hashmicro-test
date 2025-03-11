@@ -6,7 +6,7 @@
 <body>
     <h1>Module List</h1>
     {% for module in modules %}
-        <p>{{ module.name }} - {% if module.installed %} Installed {% else %} Not Installed {% endif %}</p>
+        <p>{{ module.name }} - {% if module.installed %} Installed <a href="/{{ module.name }}">Open Module</a>{% else %} Not Installed <a href="/{{ module.name }}">Open Module</a>{% endif %}</p>
         {% if not module.installed %}
             <a href="{% url 'install_module' module.name %}">Install</a>
         {% else %}
