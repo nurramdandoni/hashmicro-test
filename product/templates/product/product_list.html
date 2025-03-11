@@ -2,6 +2,17 @@
 <a href="{% url 'product_add' %}">Add New Product</a>
 <ul>
     {% for product in products %}
-        <li>{{ product.name }} - {{ product.price }} <a href="delete/{{ product.id }}">Delete</a></li>
+        <li>{{ product.name }} - {{ product.price }} <a href="delete/{{ product.id }}" onclick="return confirmDelete(event);">Delete</a></li>
     {% endfor %}
 </ul>
+
+
+<script>
+    function confirmDelete(event) {
+        event.preventDefault(); // Mencegah link langsung dijalankan
+        let confirmAction = confirm("Are you sure to delete this data?");
+        if (confirmAction) {
+            window.location.href = event.target.href; // Jika user klik "OK", lanjut ke URL
+        }
+    }
+</script>
