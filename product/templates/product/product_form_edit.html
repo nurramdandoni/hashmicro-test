@@ -1,0 +1,34 @@
+<h1>Product Form Update</h1>
+<!-- <a href="{% url 'product_add' %}">Create Product</a> -->
+
+<form action="{% url 'product_update' %}" method="POST">
+    {% csrf_token %}
+    <table>
+        <td><input type="hidden" name="id" value="{{products.id}}"></td>
+        <tr>
+            <td><span>Nama Product : </span></td>
+            <td><input type="text" name="name" value="{{products.name}}"></td>
+        </tr>
+        <tr>
+            <td><span>Barcode : </span></td>
+            <td><input type="text" name="barcode" value="{{products.barcode}}"></td>
+        </tr>
+        <tr>
+            <td><span>Price : </span></td>
+            <td><input type="text" name="price" value="{{products.price}}"></td>
+        </tr>
+        <tr>
+            <td><span>Stock : </span></td>
+            <td><input type="text" name="stock" value="{{products.stock}}"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Update Product">
+    <a href="{% url 'product_list' %}">Batal</a>
+</form>
+<!-- {% if messages %}
+    {% for message in messages|slice:"-1:" %} 
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %} -->

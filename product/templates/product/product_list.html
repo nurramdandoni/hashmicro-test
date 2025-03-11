@@ -2,7 +2,7 @@
 <a href="{% url 'product_add' %}">Add New Product</a>
 <ul>
     {% for product in products %}
-        <li>{{ product.name }} - {{ product.price }} <a href="delete/{{ product.id }}" onclick="return confirmDelete(event);">Delete</a></li>
+        <li>{{ product.name }} - {{ product.price }} <a href="edit/{{ product.id }}">Edit</a> | <a href="delete/{{ product.id }}" onclick="return confirmDelete(event);">Delete</a></li>
     {% endfor %}
 </ul>
 
