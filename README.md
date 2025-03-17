@@ -93,4 +93,28 @@ Untuk Melakukan Logout Sementara Melalui `/admin` dan klik tombol `logout`
 
 ![alt text](image-6.png)
 
+### Build Image with Docker
+
+```
+docker build -t <image-name>:<tagname> .
+```
+
+### Push Image To Dockerhub
+
+```
+docker tag local-image-name:tagname new-repo:tagname
+docker push new-repo:tagname
+```
+### Pull Image From Dockerhub
+
+```
+docker pull new-repo:tagname
+```
+
+### Run Image
+
+Running image dengan ketikan : `docker run -d --name <namaContainer> -p <hostPort>:<imagePort> <imageName>:<version>`
+```
+docker run -d --name hasmicro -p 7000:8000 nurramdandoni/hashmicro:v1.0.0
+```
 
