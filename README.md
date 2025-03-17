@@ -1,5 +1,46 @@
 ### Cara Menjalankan Project
 
+Aktifkan virtual environment(venv) 
+
+- Pada OS WIndows masuk ke Command Prompt
+```
+venv\Scripts\Activate
+```
+
+Pastikan venv aktif seperti pada gambar dibawah ini :
+
+![alt text](image-7.png)
+
+- Cek Dependency pada venv :
+```
+pip freeze
+```
+Maka Akan tampil seperti berikut :
+
+![alt text](image-9.png)
+
+- Install Dependency sendiri melalui requirement.txt :
+```
+pip install -r requirements.txt
+```
+- Cek Dependency dengan :
+
+```
+pip list
+```
+
+![alt text](image-10.png)
+
+- Menonaktifkan venv :
+```
+deaktivate
+```
+Berikut tampilan venv tidak aktif :
+
+![alt text](image-8.png)
+
+
+- Menjalankan Project
 ```
 python manage.py runserver
 ```
