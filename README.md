@@ -47,6 +47,9 @@ python manage.py runserver
 
 ### Login
 
+Login Superadmin :
+u:superadmin p:superadmin
+
 Untuk Login gunakan 3 Akses Berikut :
 
 ![alt text](image-1.png)
